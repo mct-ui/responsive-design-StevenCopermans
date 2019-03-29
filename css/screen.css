@@ -49,6 +49,13 @@ html {
     box-sizing: inherit;
 }
 
+@media (min-width: 768px) {
+    html {
+        font-size: 20px;
+        line-height: 1.6;
+    }
+}
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -82,6 +89,12 @@ img {
     ---
     Default markup for typographic elements
 */
+
+h1,
+h2,
+h3 {
+    font-weight: 200;
+}
 
 h1 {
     font-size: 36px;
@@ -207,6 +220,17 @@ a:focus {
 }
 
 /*
+    Objects: List
+    ---
+    Padding for nav lists
+*/
+.o-list {
+    list-style: none;
+    padding: 0;
+}
+
+
+/*
     Objects: Container
     ---
     Creates a horizontal container that sets de global max-width
@@ -216,7 +240,7 @@ a:focus {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 90em; /* 90 * 16px = 1440px */
+    max-width: 56.4em; /* 56.4 * 20px = 1128px */
 }
 
 /*
@@ -234,9 +258,13 @@ a:focus {
     flex-wrap: wrap;
 }
 
-    .o-layout__item {
-        width: 100%;
-    }
+.o-layout__item {
+    width: 100%;
+}
+
+.flex50 {
+    width: 50%;
+}
 
 /* gutter modifiers, these affect o-layout__item too */
 
@@ -344,12 +372,77 @@ a:focus {
 }
 
 .c-logo__symbol {
-    height: 100%;
+    height: inherit;
+}
+
+.c-nav {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.c-nav--meta {
+    font-size: 16px;
+}
+
+.c-nav__link {
+    display: block;
+    text-decoration: none;
+    font-weight: 400;
+    padding: 8px 0;
+}
+
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
+    color: #202024;
+}
+
+.c-nav__link--meta,
+.c-nav__link--meta:visited,
+.c-nav__link--meta:active {
+    color: #6c6c75;
+}
+
+.is-active .c-nav__link,
+.c-nav__link:hover,
+.c-nav__link:focus {
+    color: #5051db;
+}
+
+/*
+    Component: header
+    ---
+    Main header of the website
+*/
+
+.c-header__nav {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .c-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .c-header__nav {
+        display: block;
+    }
 }
 
 @media (min-width: 768px) {
     .c-logo {
         height: 40px;
+    }
+
+    .c-nav__list {
+        display: flex;
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+
+    .c-nav__link {
+        padding: 8px 16px;
     }
 }
 
@@ -479,10 +572,7 @@ a:focus {
 }
 
 @media (min-width: 768px) {
-    html {
-        font-size: 20px;
-        line-height: 1.6;
-    }
+
     .u-1-of-2-bp2 {
         width: 50% !important;
     }

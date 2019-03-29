@@ -201,6 +201,35 @@ a:focus {
     flex-direction: column;
 }
 
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.o-section + .o-section {
+    margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+    .o-section--lg + .o-section--lg,
+    .o-section--xl + .o-section--xl {
+        margin-top: 48px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .o-section--xl + .o-section--xl {
+        margin-top: 72px;
+    }
+}
+
+
 /* size modifiers */
 
 .o-row--lg {
@@ -211,6 +240,11 @@ a:focus {
     .o-row {
         padding-left: 48px;
         padding-right: 48px;
+    }
+
+    .o-row—md {
+        padding-top: 48px;
+        padding-bottom: 24px;
     }
 
     .o-row--lg {
@@ -260,10 +294,6 @@ a:focus {
 
 .o-layout__item {
     width: 100%;
-}
-
-.flex50 {
-    width: 50%;
 }
 
 /* gutter modifiers, these affect o-layout__item too */
@@ -449,6 +479,17 @@ a:focus {
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+    padding-top: 0 !important;
+}
+
 
 /*
     Utilities: max-width
